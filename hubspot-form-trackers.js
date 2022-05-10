@@ -254,6 +254,11 @@ window.addEventListener("message", (event) => {
           field.value = fbEventId;
           console.log(fbEventId);
         });
+      window.dataLayer.push({
+        "event": "hubspot-form-loaded",
+        'hs-form-guid': event.data.id,
+        'hs-form-event-id': fbEventId
+      });
     }
     function addExperimentTracking() {
       var propertyId = "UA-81405772-1";
