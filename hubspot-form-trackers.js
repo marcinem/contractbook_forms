@@ -124,7 +124,6 @@ window.addEventListener("message", (event) => {
       utmSourceFields.forEach(function (field) {
         if (document.querySelectorAll(field)) {
           currutmSourceFields = document.querySelectorAll(field);
-          console.log(currutmSourceFields);
         }
       });
       // get all medium inputs
@@ -234,13 +233,12 @@ window.addEventListener("message", (event) => {
         .querySelectorAll('[name="facebook_event_id"]')
         .forEach(function (field) {
           field.value = fbEventId;
-          console.log(fbEventId);
         });
     }
     function addExperimentTracking() {
       var propertyId = "UA-81405772-1";
       (function loop() {
-        if (!gaData) {
+        if (!Object.keys(gaData[propertyId].experiments)) {
           setTimeout(function () {
             loop();
           }, 3000);
@@ -264,7 +262,7 @@ window.addEventListener("message", (event) => {
               field.value = variantIds;
             });
         }
-      });
+      })();
     }
     addGclid();
     addFBid();
