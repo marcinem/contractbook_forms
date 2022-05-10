@@ -247,11 +247,12 @@ window.addEventListener("message", (event) => {
       }
 
       var fbEventId = generateUUID();
-      console.log(fbEventId);
+
       document
         .querySelectorAll('[name="facebook_event_id"]')
         .forEach(function (field) {
           field.value = fbEventId;
+          console.log(fbEventId);
         });
     }
     function addExperimentTracking() {
