@@ -246,18 +246,16 @@ window.addEventListener("message", (event) => {
         );
       }
 
-      var fbEventId = generateUUID();
-
       document
         .querySelectorAll('[name="facebook_event_id"]')
         .forEach(function (field) {
-          field.value = fbEventId;
-          console.log(fbEventId);
+          field.value = generateUUID();
+          console.log(generateUUID());
         });
       window.dataLayer.push({
         "event": "hubspot-form-loaded",
         'hs-form-guid': event.data.id,
-        'hs-form-event-id': fbEventId
+        'hs-form-event-id': generateUUID()
       });
     }
     function addExperimentTracking() {
